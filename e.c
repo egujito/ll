@@ -12,7 +12,7 @@ int main (void) {
 
     int* arr = LL_arr(&list);
 
-    for (int i = 0; i < list.size/sizeof(struct Node); ++i) {
+    for (int i = 0; i < list.len; ++i) {
         printf("Index has value -> %d \n", arr[i]);
     }
     return 0;

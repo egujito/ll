@@ -9,7 +9,7 @@
 
 struct Node {
     struct Node *next;
-    int data;
+    void* data;
 };
 
 typedef struct {
@@ -20,8 +20,8 @@ typedef struct {
 
 List new(List *list); /* Create new linked list */
 void LL_remove(List* list, int index); /* Remove item at the give index */
-void LL_push(List *list, int data); /* Add item to the last index */
-int *LL_arr(List *list); /* convert Linked list to fixed size array */
+void LL_push(List *list, void* data); /* Add item to the last index */
+void** LL_arr(List *list); /* convert Linked list to fixed size array */
 size_t LL_size(List *list); /* Used to get and update the size of the list*/
 
 List new(List* list) {
@@ -31,7 +31,7 @@ List new(List* list) {
     return *list;
 }
 
-void LL_push(List *list, int data) {
+void LL_push(List *list, void* data) {
     
     struct Node* iter = NULL;
     struct Node* n = (struct Node*)malloc(sizeof(struct Node));
@@ -100,10 +100,10 @@ size_t LL_size(List* list) {
     return s * sizeof(struct Node);
 }
  
-int* LL_arr(List* list) {
+void** LL_arr(List* list) {
     assert(list->start != NULL);
 
-    int* arr = (int*)malloc(sizeof(int) * list->size);  
+    void** arr = (void*)malloc(sizeof(void) * list->size);  
     struct Node* t = NULL;
     int i = 0;
     t = list->start;

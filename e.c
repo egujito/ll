@@ -8,7 +8,7 @@ typedef struct {
 
 int main (void) {
 
-    List list = new();
+    List list = LL_new();
     Custom_struct n_struct = { 70, "String of custom struct" };
 
     LL_push(&list, &n_struct);

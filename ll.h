@@ -18,17 +18,15 @@ typedef struct {
     int len;
 } List;
 
-List new(List *list); /* Create new linked list */
+List LL_new(void); /* Create new linked list */
 void LL_remove(List* list, int index); /* Remove item at the give index */
 void LL_push(List *list, void* data); /* Add item to the last index */
 void** LL_arr(List *list); /* convert Linked list to fixed size array */
 size_t LL_size(List *list); /* Used to get and update the size of the list*/
 
-List new(List* list) {
-    list->start = NULL;
-    list->size = 0;
-    list->len = 0;
-    return *list;
+List LL_new(void) {
+    List list = { NULL, 0, 0, };
+    return list;
 }
 
 void LL_push(List *list, void* data) {

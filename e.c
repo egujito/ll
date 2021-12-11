@@ -10,8 +10,10 @@ int main (void) {
 
     List list = LL_new();
     Custom_struct n_struct = { 70, "String of custom struct" };
+    Custom_struct s_struct = { -1203, "Yet, another string of a custom structure" };
 
     LL_push(&list, &n_struct);
+    LL_push(&list, &s_struct);
 
     Custom_struct* c_struct = *(Custom_struct**)LL_arr(&list);
 
